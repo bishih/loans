@@ -1,3 +1,6 @@
 Flask
 flask_restful
 requests
+apispec
+marshmallow
+flask_apispec
