@@ -109,8 +109,8 @@ class BalancesEP (MethodResource, Resource):
         return jsonify(b_data)
 
 
-api.add_resource(LoansEP, '/loans/bank/<string:bank_id>/account/<string:account_id>')
-api.add_resource(BalancesEP, '/balances/bank/<string:bank_id>/account/<string:account_id>')
+api.add_resource(LoansEP, '/ca/loans/bank/<string:bank_id>/account/<string:account_id>')
+api.add_resource(BalancesEP, '/ca/balances/bank/<string:bank_id>/account/<string:account_id>')
 docs.register(LoansEP)
 docs.register(BalancesEP)
 
