@@ -1,0 +1,16 @@
+global:
+  scrape_interval: 3s
+
+  external_labels:
+    monitor: "webapp"
+
+rule_files:
+
+scrape_configs:
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["prometheus:9090"]
+
+  - job_name: "webapp"
+    static_configs:
+      - targets: ["webapp:30036"]

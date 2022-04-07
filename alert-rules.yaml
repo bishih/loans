@@ -1,0 +1,29 @@
+additionalPrometheusRulesMap:
+ custom-rules:
+  groups:
+  - name: WebappRules
+    rules:
+    - alert: GetTimeUrlInvocation
+      expr: rate(by_path_counter_total{path="/getTime"}[1m]) > 0
+      for: 1s
+      labels:
+        severity: info
+      annotations:
+        summary: “get time url was invoke”
+        description: “get time url was invoke”
+    - alert: DoOperationUrlInvocation
+      expr: rate(by_path_counter_total{path="/doOperation"}[1m]) > 0
+      for: 1s
+      labels:
+        severity: info
+      annotations:
+        summary: “doOperation url was invoke”
+        description: “doOperation url was invoke”
+    - alert: DeleteOperationUrlInvocation
+      expr: rate(by_path_counter_total{path="/deleteOperation"}[1m]) > 0
+      for: 1s
+      labels:
+        severity: info
+      annotations:
+        summary: “deleteOperation url was invoke”
+        description: “deleteOperation url was invoke”

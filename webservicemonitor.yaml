@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: webapp-service-monitor
+  namespace: default
+  labels:
+    app: webapp
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: webapp
+  endpoints:
+  - port: http
+    interval: 3s
+  namespaceSelector:
+    matchNames:
+      - default

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "webapp.fullname" . }}
+  labels:
+    {{- include "webapp.labels" . | nindent 4 }}
+    
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: 8083
+      protocol: TCP
+      name: http
+      nodePort: 30036
+  selector:
+    {{- include "webapp.selectorLabels" . | nindent 4 }}
